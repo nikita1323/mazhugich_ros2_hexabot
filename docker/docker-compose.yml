@@ -1,0 +1,15 @@
+services:
+  hexabot_client:
+    container_name: hexabot_client
+    build:
+      dockerfile: ./Dockerfile
+      args:
+        USERNAME: $USERNAME
+    environment:
+      - DISPLAY=host.docker.internal:0
+    volumes:
+      - ../ros2_ws:/ros2_ws
+    working_dir: home/ros2_ws
+    network_mode: host
+    cap_add:
+      - NET_ADMIN
