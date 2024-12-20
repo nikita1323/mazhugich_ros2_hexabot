@@ -8,3 +8,4 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
+RUN echo "export CYCLONEDDS_URI=file:///cyclonedds.xml" >> /root/.bashrc

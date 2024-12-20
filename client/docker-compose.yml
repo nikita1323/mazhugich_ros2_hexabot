@@ -1,0 +1,26 @@
+services:
+  hexabot_client:
+    container_name: hexabot_client
+    build:
+      dockerfile: ./Dockerfile
+    environment:
+      - DISPLAY=host.docker.internal:0
+    volumes:
+      - ./cyclonedds.xml:/cyclonedds.xml
+      - ./ros2_ws:/ros2_ws
+    network_mode: service:husarnet
+    stdin_open: true
+    tty: true
+
+  husarnet:
+    image: husarnet/husarnet
+    restart: unless-stopped
+    volumes:
+      - /var/lib/husarnet
+    sysctls:
+      - net.ipv6.conf.all.disable_ipv6=0
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    env_file: "hnet_client.env"
