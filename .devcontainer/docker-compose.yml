@@ -1,0 +1,13 @@
+services:
+  hexabot_server:
+    container_name: hexabot_server
+    build:
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./ros2_ws:/ros2_ws
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /dev/dri:/dev/dri
+    working_dir: /ros2_ws
+    network_mode: host
+    stdin_open: true
+    tty: true
