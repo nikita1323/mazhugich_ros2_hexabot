@@ -8,6 +8,7 @@ services:
     volumes:
       - ./cyclonedds.xml:/cyclonedds.xml
       - ./ros2_ws:/ros2_ws
+    working_dir: /ros2_ws
     network_mode: service:husarnet
     stdin_open: true
     tty: true
@@ -23,4 +24,4 @@ services:
       - NET_ADMIN
     devices:
       - /dev/net/tun
-    env_file: "hnet_client.env"
+    env_file: "hexabot_server.env"

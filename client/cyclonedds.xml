@@ -10,7 +10,7 @@
         </General>      
         <Discovery>
             <Peers>
-                <Peer address="mazhugich_hexabot_server"/>
+                <Peer address="hexabot_server"/>
             </Peers>
             <ParticipantIndex>auto</ParticipantIndex>
         </Discovery>
