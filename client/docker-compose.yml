@@ -14,6 +14,7 @@ services:
     tty: true
 
   husarnet:
+    container_name: hnet_client
     image: husarnet/husarnet
     restart: unless-stopped
     volumes:
@@ -24,4 +25,4 @@ services:
       - NET_ADMIN
     devices:
       - /dev/net/tun
-    env_file: "hexabot_server.env"
+    env_file: "hexabot_client.env"
